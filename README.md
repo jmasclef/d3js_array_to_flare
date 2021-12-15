@@ -1,4 +1,4 @@
-# Python array to d3js json flare
+# Python array to d3js hierarchical json flare
 For those types of visualization tools:<br/>
 https://observablehq.com/@d3/gallery<br/>
 https://observablehq.com/@d3/collapsible-tree<br/>
