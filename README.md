@@ -1,5 +1,5 @@
 # d3js_array_to_flare
-Python script to convert array of nested data to d3js json flare<br/><br/>
+Python script to convert sorted array of nested data to d3js json flare<br/><br/>
 <code>array=[['00001', '00004'], ['00001', '00004'], ['00002', '00008'], ['00002', '00008'], ['00002', '00008'], ['00002', '00014'], ['00002', '00014'], ['00003', '00092'], ['00003', '00092'], ['00003', '01004']]</code>
 <br/><br/>
 <code>value_is_count=True </code><br/>
