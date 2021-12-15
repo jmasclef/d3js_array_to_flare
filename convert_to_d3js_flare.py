@@ -1,8 +1,9 @@
 def __asr_array_to_d3js_flare_keys(array:list,value_is_lastColumn:False,value_is_count:False)->dict:
     """
-    Build d3js Flare from keys array, used for recursion
-    Values can be:
-    * Filled with 1 if value_is_lastColumn and value_is_count are False
+    Do NOT call this function
+    Build d3js Flare from keys array, used for recursion only 
+    Returned values will be:
+    * Filled with 1 if value_is_lastColumn is false and value_is_count is False
     * Filled with a second column if value_is_lastColumn is True (keys must be unique!)
     * Filled with count if value_is_count is True, in that case duplicate keys will be count here
     :param array: 2D sorted array [[key,value],...] if value_is_lastColumn else [ [key1], [key2],....]
@@ -44,13 +45,21 @@ def __asr_array_to_d3js_flare_keys(array:list,value_is_lastColumn:False,value_is
     return d
 
 def asr_array_to_d3js_flare(array:list,value_is_lastColumn:False,value_is_count:False)->dict:
-    f = __asr_array_to_d3js_flare_keys
+    """
+    Build a d3js flare dict from sorted array
+    * Either array contains values in its last column, set value_is_lastColumn=True
+    * Either array has no provided values but has duplicates to count, set value_is_count=True
+    * Either array has single lines, values bill be set to 1
+    :param array: sorted array [[root, node, key,value],...] if value_is_lastColumn else [ [root, node, key], [root, node, key],...]
+    :param value_is_lastColumn: array has last column with value [[...,...,key, value],...]
+    :param value_is_count: array is [ [...,...,key1], [...,...,key2],....] duplicate keys will be counted as value
+    :return: structured dict for hierarchical d3js json flare
+    """
     if value_is_lastColumn and value_is_count:
         raise "Values are either counted or provided, both is not possible. Fix both bools to False for arbitrary 1 values."
     array_width=len(array[0])
     first_width = 2 if value_is_lastColumn else 1
     parent_column=array_width-3 if value_is_lastColumn else array_width-2
-    current_width=first_width
     first_flare_array=[[line[-2], line[-1]] for line in array] if value_is_lastColumn else [[line[-1]] for line in array]
     first_flare=__asr_array_to_d3js_flare_keys(array=first_flare_array,value_is_lastColumn=value_is_lastColumn,value_is_count=value_is_count)
     current_flare=first_flare
