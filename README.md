@@ -1,4 +1,9 @@
-# d3js_array_to_flare
+# Python array to d3js json flare
+For those types of visualization tools:<br/>
+https://observablehq.com/@d3/gallery<br/>
+https://observablehq.com/@d3/collapsible-tree<br/>
+https://observablehq.com/@d3/zoomable-treemap<br/>
+<br/>
 Python script to convert sorted array of nested data to d3js json flare<br/><br/>
 <code>array=[['00001', '00004'], ['00001', '00004'], ['00002', '00008'], ['00002', '00008'], ['00002', '00008'], ['00002', '00014'], ['00002', '00014'], ['00003', '00092'], ['00003', '00092'], ['00003', '01004']]</code>
 <br/><br/>
